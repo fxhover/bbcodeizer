@@ -70,7 +70,7 @@ module BBCodeizer
                 :myspacetv, :collegehumor, :hulu, :metacafe, :yahoovid, :flickr, :gametrailers,
                 :slideshare, :funnyordie, :atomfilms, :vimeo, :li, :list, :current, :auto_link,
                 :url_with_title, :url_sans_title, :image1, :size1, :url_sans_title1, :align, :code,
-                :nl2br, :bl2br1]
+                :nl2br, :nl2br1]
 
     TagGroups = { :video => [ :youtube, :googlevid, :flash, :superdeluxe, :comedycentral, :revver,
                             :myspacetv, :collegehumor, :hulu, :metacafe, :yahoovid, :gametrailers,
