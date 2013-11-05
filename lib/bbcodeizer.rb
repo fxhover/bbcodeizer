@@ -24,7 +24,6 @@ module BBCodeizer
       :url_with_title        => [ /\[url=(.+?)\](.+?)\[\/url\]/i, '<a href="\1" target="_blank">\2</a>' ],
       :url_sans_title        => [ /\[url\](.+?)\[\/url\]/i, '<a href="\1" target="_blank">\1</a>' ],
       :image                 => [ /\[img\](.+?)\[\/img\]/i, '<img src="\1" alt="\1" />' ],
-      :image1                => [ /\[img=(.+?)\]\[\/img\]/i, '<img src="\1" alt="\1" />' ],
       :size                  => [ /\[size=(\d{1,2})\](.+?)\[\/size\]/im, '<span style="font-size: \1px">\2</span>' ],
       :color                 => [ /\[color=([^;]+?)\](.+?)\[\/color\]/im, '<span style="color: \1">\2</span>' ],
       :youtube               => [ /\[youtube\](.+?)youtube.com\/watch\?v=(.+?)\[\/youtube\]/i, '<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/\2?fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/\2?fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="350"></embed></object>' ],
@@ -52,17 +51,22 @@ module BBCodeizer
       :sup                   => [ /\[sup\](.+?)\[\/sup\]/im, '<sup>\1</sup>' ],
       :sub                   => [ /\[sub\](.+?)\[\/sub\]/im, '<sub>\1</sub>' ],
       :auto_link             => [ /(\A|\s|>)((https?:\/\/|www\.)[^\s<]+)/, '\1<a href="\2" target="_blank">\2</a>' ],
+      
+      :image1                => [ /\[img=(.+?)\]\[\/img\]/i, '<img src="\1" alt="\1" />' ],
+      :size1                 => [ /\[size=(\d{1,2}px)\](.+?)\[\/size\]/im, '<span style="font-size: \1">\2</span>' ],
+      :url_sans_title1       => [ /\[url=(.+?)\]\[\/url\]/i, '<a href="\1" target="_blank">\1</a>' ],
+      :align                 => [ /\[align=(.+?)\](.+?)\[\/align\]/i, '<span style="align: \1">\2</span>'] 
     }
 
     # Tags in this list are invoked. To deactivate a particular tag, call BBCodeizer.deactivate.
     # These names correspond to either names above or methods in this module.
                 # The ':literal' tag MUST be first for it to work correctly
     TagList = [ :literal, :bold, :italic, :underline, :del, :strike, :email_with_name,
-                :email_sans_name, :image, :image1, :size, :color, :code, :quote, :youtube, :googlevid,
+                :email_sans_name, :image , :size, :color, :code, :quote, :youtube, :googlevid,
                 :flash, :spoiler, :nsfw, :hide, :mp3, :superdeluxe, :comedycentral, :revver,
                 :myspacetv, :collegehumor, :hulu, :metacafe, :yahoovid, :flickr, :gametrailers,
                 :slideshare, :funnyordie, :atomfilms, :vimeo, :li, :list, :current, :auto_link,
-                :url_with_title, :url_sans_title ]
+                :url_with_title, :url_sans_title, :image1, :size1, :url_sans_title1, :align ]
 
     TagGroups = { :video => [ :youtube, :googlevid, :flash, :superdeluxe, :comedycentral, :revver,
                             :myspacetv, :collegehumor, :hulu, :metacafe, :yahoovid, :gametrailers,
