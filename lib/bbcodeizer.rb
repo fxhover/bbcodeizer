@@ -24,7 +24,7 @@ module BBCodeizer
       :url_with_title        => [ /\[url=(.+?)\](.+?)\[\/url\]/i, '<a href="\1" target="_blank">\2</a>' ],
       :url_sans_title        => [ /\[url\](.+?)\[\/url\]/i, '<a href="\1" target="_blank">\1</a>' ],
       :image                 => [ /\[img\](.+?)\[\/img\]/i, '<img src="\1" alt="\1" />' ],
-      :image1                => [ /\[img=(.+?)\\][\/img\]/i, '<img src="\1" alt="\1" />' ],
+      :image1                => [ /\[img=(.+?)\]\[\/img\]/i, '<img src="\1" alt="\1" />' ],
       :size                  => [ /\[size=(\d{1,2})\](.+?)\[\/size\]/im, '<span style="font-size: \1px">\2</span>' ],
       :color                 => [ /\[color=([^;]+?)\](.+?)\[\/color\]/im, '<span style="color: \1">\2</span>' ],
       :youtube               => [ /\[youtube\](.+?)youtube.com\/watch\?v=(.+?)\[\/youtube\]/i, '<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/\2?fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/\2?fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="350"></embed></object>' ],
