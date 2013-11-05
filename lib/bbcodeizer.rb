@@ -57,7 +57,7 @@ module BBCodeizer
       :url_sans_title1       => [ /\[url=(.+?)\]\[\/url\]/i, '<a href="\1" target="_blank">\1</a>' ],
       :align                 => [ /\[align=(.+?)\](.+?)\[\/align\]/i, '<span style="align: \1">\2</span>'],
       :code_start            => [ /\[code=(.+?)\](\r\n?)?/i, '<pre>:::\1'],
-      :code_end              => [ /(\r\n?)?\[\/code]/i, '</pre>']
+      :code_end              => [ /(\r\n?)?\[\/code\]/i, '</pre>']
       :nl2br                 => [ /\r\n/i, '<br/>'],
     }
 
