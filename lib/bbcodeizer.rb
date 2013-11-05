@@ -56,7 +56,9 @@ module BBCodeizer
       :size1                 => [ /\[size=(\d{1,2}px)\](.+?)\[\/size\]/im, '<span style="font-size: \1">\2</span>' ],
       :url_sans_title1       => [ /\[url=(.+?)\]\[\/url\]/i, '<a href="\1" target="_blank">\1</a>' ],
       :align                 => [ /\[align=(.+?)\](.+?)\[\/align\]/i, '<span style="align: \1">\2</span>'],
-      :code                  => [/\[code=(.+?)\](.+?)\[\/code\]/i, '<pre>:::\1 \2 </pre>'],
+      :code                  => [ /\[code=(.+?)\](.+?)\[\/code\]/i, '<pre>:::\1 \2 </pre>'],
+      :nl2br                 => [ /(\r\n)?/i, '<br/>'],
+      :nl2br1                => [ /(\n)?/i, '<br/>']
     }
 
     # Tags in this list are invoked. To deactivate a particular tag, call BBCodeizer.deactivate.
@@ -67,7 +69,8 @@ module BBCodeizer
                 :flash, :spoiler, :nsfw, :hide, :mp3, :superdeluxe, :comedycentral, :revver,
                 :myspacetv, :collegehumor, :hulu, :metacafe, :yahoovid, :flickr, :gametrailers,
                 :slideshare, :funnyordie, :atomfilms, :vimeo, :li, :list, :current, :auto_link,
-                :url_with_title, :url_sans_title, :image1, :size1, :url_sans_title1, :align, :code ]
+                :url_with_title, :url_sans_title, :image1, :size1, :url_sans_title1, :align, :code,
+                :nl2br, :bl2br1]
 
     TagGroups = { :video => [ :youtube, :googlevid, :flash, :superdeluxe, :comedycentral, :revver,
                             :myspacetv, :collegehumor, :hulu, :metacafe, :yahoovid, :gametrailers,
